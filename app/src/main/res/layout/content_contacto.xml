@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Contacto"
+    tools:showIn="@layout/activity_contacto">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="291dp"
+        android:layout_height="45dp"
+        android:text="Contacto"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <EditText
+        android:id="@+id/EditTextName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de usuario"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="105dp"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="151dp"></EditText>
+
+    <Spinner
+        android:id="@+id/SpinnerFeedbackType"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:entries="@array/feedbacktypelist"
+        android:prompt="Seleccionar tipo de solicitud"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="197dp"
+        tools:ignore="HardcodedText"></Spinner>
+
+    <EditText
+        android:id="@+id/EditTextFeedbackBody"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:autoText="false"
+        android:hint="Añada un comentario"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="257dp"></EditText>
+
+    <Button
+        android:id="@+id/ButtonSendFeedback"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendFeedback"
+        android:text="Enviar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="400dp">
+    </Button>
+
+    final EditText nameField = (EditText) findViewById(R.id.EditTextName);
+    String name = nameField.getText().toString();
+
+    final EditText emailField = (EditText) findViewById(R.id.EditTextEmail);
+    String email = emailField.getText().toString();
+
+    final EditText feedbackField = (EditText) findViewById(R.id.EditTextFeedbackBody);
+    String feedback = feedbackField.getText().toString();
+
+    final Spinner feedbackSpinner = (Spinner) findViewById(R.id.SpinnerFeedbackType);
+    String feedbackType = feedbackSpinner.getSelectedItem().toString();
+
+    final CheckBox responseCheckbox = (CheckBox) findViewById(R.id.CheckBoxResponse);
+    boolean bRequiresResponse = responseCheckbox.isChecked();
+
+
+</android.support.constraint.ConstraintLayout>
